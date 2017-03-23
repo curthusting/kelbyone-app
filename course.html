@@ -1,0 +1,317 @@
+<div class="page" data-page="course">
+    <div class="navbar theme-orange">
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="index.html" class="back color-white"><i class="material-icons">keyboard_arrow_left</i></a>
+            </div>
+            <div class="center">
+                <a href="#" data-popover=".course-categories" class="open-popover color-white">{{name}}</a>
+            </div>
+            <div class="right">
+                <a href="#" data-popover=".playback-options" class="open-popover color-white material-icons">more_vert</a>
+            </div>
+        </div>
+    </div>
+    <div class="toolbar tabbar theme-orange">
+        <div class="toolbar-inner">
+            <a href="#course-about" class="tab-link active">About</a>
+            <a href="#course-lessons" class="tab-link">Lessons</a>
+            <!-- <a href="#course-related" class="tab-link">Related</a> -->
+        </div>
+    </div>
+    <div class="page-content">
+        <div style="background-image:url({{image}})" class="card-header color-white no-border">
+        <div id="player"></div>
+            <a href="#" class="show-course-lessons">
+                <div class="play-overlay">
+                    <div class="top">
+                        <div class="left"></div>
+                        <div class="center"></div>
+                        <div class="right"></div>
+                    </div>
+                    <div class="middle">
+                        <!-- <div class="left"><i class="material-icons icon">skip_previous</i></div> -->
+                        <div class="center"><i class="material-icons icon">play_circle_outline</i></div>
+                        <!-- <div class="right"><i class="material-icons icon">skip_next</i></div> -->
+                    </div>
+                    <div class="bottom">
+                        <div class="left"></div>
+                        <div class="center"></div>
+                        <div class="right"></div>
+                    </div>
+                </div>
+            </a>
+                <!-- <div class="controls">
+
+                    <div class="header">
+
+                        <div class="left"><a href="index.html" class="back color-white"><i class="material-icons">keyboard_arrow_left</i></a></div>
+
+                        <div class="right"><i class="material-icons color-white">more_vert</i></div>
+
+                    </div>
+
+                    <div class="footer">
+                        <div class="left"><i class="material-icons color-white">play_arrow</i></div>
+                        <div class="center">
+                            <div class="range-slider">
+                              <input type="range" min="0" max="100" value="32" step="0.1">
+                            </div>
+                        </div>
+                        <div class="right"><i class="material-icons color-white">fullscreen</i></div>
+                    </div>
+
+                </div> -->
+        </div>
+        <span data-progress="{{progress}}" class="progressbar"><span style="transform: translate3d(-{{js 'this.progress - 100'}}%, 0px, 0px);"></span></span>
+        <div class="tabs-swipeable-wrap swiper-container swiper-container-horizontal">
+            <div class="tabs swiper-wrapper">
+                <div id="course-about" class="tab swiper-slide active">
+                    <div class="row no-gutter">
+                        <div class="wrapper">
+                            <div class="card-content-inner header">
+                                <div class="list-block media-list">
+                                    <ul>
+                                        <li class="item-content">
+                                            <div class="item-media"><a class="color-gray link" href="instructor.html" data-context='{{stringify instructor}}'><img src="{{instructor.image}}" width="44" class=""></a></div>
+                                            <div class="item-inner">
+                                                <div class="item-title-row">
+                                                    <div class=""><h3>{{name}}</h3></div>
+                                                </div>
+                                                <div class="item-subtitle color-gray">with <a class="color-gray link" href="instructor.html" data-context='{{stringify instructor}}'>{{instructor.name}}</a></div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card-content-inner">
+                                <p>{{body}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="course-lessons" class="tab swiper-slide">
+                    <div class="row no-gutter">
+                        <div class="wrapper">
+                            <div class="list-block media-list chapters">
+                                <ul>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-media">
+                                                <i class="material-icons icon color-teal">check</i>
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="item-title-row">
+                                                    <div class="item-title">Introduction</div>
+                                                </div>
+                                                <div class="item-subtitle color-gray">10:15</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    {{#each lessons}}
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-media">
+                                                <i class="material-icons icon color-cyan">play_circle_outline</i>
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="item-title-row">
+                                                    <div class="item-title">{{name}}</div>
+                                                    <!-- <div class="item-after">{{duration}}</div> -->
+                                                </div>
+                                                <div class="item-subtitle color-gray">{{duration}}</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    {{/each}}
+                                </ul>
+                            </div>
+                            <!-- </div> -->
+                        </div>
+                    </div>
+                </div>
+                <!--             <div id="course-instructor" class="tab page-content swiper-slide">
+                <div class="row no-gutter">
+                    <div class="wrapper">
+                        <div style="background-image:url({{instructor.image}})" class="card-header color-white no-border">
+                        </div>
+                        <div class="card-content">
+                            <div class="card-content-inner">
+                                <a class="color-black link" href="instructor.html" data-context='{{stringify instructor}}'><h3>{{instructor.name}}</h3></a>
+                                <p>{{instructor.body}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+                <!-- <div id="course-related" class="tab page-content swiper-slide">
+                <div class="row no-gutter">
+                    <div class="card">
+                        <div class="wrapper">
+                            <div style="background-image:url(//img.kelbymediagroup.com/kelbyone_enterprise/2017/01/NOTC_MainImages_01.18.17_LearnToLetGo-768x432.jpg)" class="card-header color-white no-border"></div>
+                            <span data-progress="0" class="progressbar"><span style="transform: translate3d(-100%, 0px, 0px);"></span></span>
+                            <div class="card-content">
+                                <div class="card-content-inner">
+                                    <a class="color-black link" href="course.html"><h3>Building a Winning Portfolio: Editing and Sequencing Your Images</h3></a>
+                                    <p class="color-gray">with Stella Kramer</p>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <a href="course.html">View Course</a>
+                                <a href="#" class="material-icons">bookmark_border</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="wrapper">
+                            <div style="background-image:url(http://img.kelbymediagroup.com/kelbyone_enterprise/2017/01/AARON_NOTC_MainImages_01.04.17_PetsinChallengingSituations-768x432.jpg)" class="card-header color-white no-border"></div>
+                            <span data-progress="0" class="progressbar"><span style="transform: translate3d(-100%, 0px, 0px);"></span></span>
+                            <div class="card-content">
+                                <div class="card-content-inner">
+                                    <a class="color-black link" href="course.html"><h3>Dog Photography: Overcoming Challenging Situations</h3></a>
+                                    <p class="color-gray">with Kaylee Greer</p>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <a href="course.html">View Course</a>
+                                <a href="#" class="material-icons">bookmark</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="wrapper">
+                            <div style="background-image:url(http://img.kelbymediagroup.com/kelbyone_enterprise/2017/01/NOTC_MainImages_01.25.17_Headshot-768x432.jpg)" class="card-header color-white no-border"></div>
+                            <span data-progress="0" class="progressbar"><span style="transform: translate3d(-100%, 0px, 0px);"></span></span>
+                            <div class="card-content">
+                                <div class="card-content-inner">
+                                    <a class="color-black link" href="course.html"><h3>The Top Ten Headshot Photography Questions Answered</h3></a>
+                                    <p class="color-gray">with Peter Hurley</p>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <a href="course.html">View Course</a>
+                                <a href="#" class=" material-icons">bookmark</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="wrapper">
+                            <div style="background-image:url(http://img.kelbymediagroup.com/kelbyone_enterprise/2017/02/AARON_NOTC_MainImages_02.22.17_BeginnersStartHere-768x432.jpg)" class="card-header color-white no-border">
+                            </div>
+                            <span data-progress="0" class="progressbar"><span style="transform: translate3d(-100%, 0px, 0px);"></span></span>
+                            <div class="card-content">
+                                <div class="card-content-inner">
+                                    <a class="color-black link" href="course.html"><h3>Beginners Start Here</h3></a>
+                                    <p class="color-gray">with Scott Kelby</p>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <a href="course.html">View Course</a>
+                                <a href="#" class="material-icons">bookmark_border</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            </div>
+        </div>
+    </div>
+<!--   <div class="popup popup-about">
+    <div class="content-block">
+      <p>About</p>
+      <p><a href="#" class="close-popup">Close popup</a></p>
+      <p>Lorem ipsum dolor ...</p>
+    </div>
+  </div> -->
+
+    <div class="popover playback-options">
+        <!-- <div class="content-block-title">Video Options</div> -->
+
+        <div class="list-block">
+            <ul>
+                <li><div class="item-content">
+                <a href="#" class="list-button">
+                <div class="item-media">
+                  <i class="icon material-icons color-cyan">file_download</i>
+                </div>
+                <div class="item-inner">
+          <div class="item-title color-black">Download</div></a></div></li>
+            </ul>
+
+        </div>
+
+        <div class="content-block-title">Playback Speed</div>
+        <div class="list-block">
+  <ul>
+    <!-- Single radio input -->
+    <li>
+      <label class="label-radio item-content">
+        <!-- Checked by default -->
+        <input type="radio" name="speed" value="1" checked="checked">
+        <div class="item-media">
+          <i class="icon icon-form-radio"></i>
+        </div>
+        <div class="item-inner">
+          <div class="item-title">Normal</div>
+        </div>
+      </label>
+    </li>
+    <!-- Another radio input -->
+    <li>
+      <label class="label-radio item-content">
+        <input type="radio" name="speed" value="1.5">
+        <div class="item-media color-orange">
+          <i class="icon icon-form-radio"></i>
+        </div>
+        <div class="item-inner">
+          <div class="item-title">1.5x</div>
+        </div>
+      </label>
+    </li>
+    <li>
+      <label class="label-radio item-content">
+        <input type="radio" name="speed" value="2">
+        <div class="item-media color-orange">
+          <i class="icon icon-form-radio"></i>
+        </div>
+        <div class="item-inner">
+          <div class="item-title">2x</div>
+        </div>
+      </label>
+    </li>
+  </ul>
+</div>
+        <div class="content-block-title">Playback Options</div>
+        <div class="list-block">
+  <ul>
+    <!-- Single radio input -->
+    <li>
+      <label class="label-radio item-content">
+        <!-- Checked by default -->
+        <input type="radio" name="options" value="stream" checked="checked">
+        <div class="item-media color-orange">
+          <i class="icon icon-form-radio"></i>
+        </div>
+        <div class="item-inner">
+          <div class="item-title">Stream Videos</div>
+        </div>
+      </label>
+    </li>
+    <!-- Another radio input -->
+    <li>
+      <label class="label-radio item-content">
+        <input type="radio" name="options" value="buffer">
+        <div class="item-media color-orange">
+          <i class="icon icon-form-radio"></i>
+        </div>
+        <div class="item-inner">
+          <div class="item-title">Buffer Videos</div>
+        </div>
+      </label>
+    </li>
+    <li><div class="item-content"><p class="color-gray">Use the buffer playback option if you are experiencing problems with stuttering video.</p></div></li>
+  </ul>
+</div>
+
+    </div>
+</div>

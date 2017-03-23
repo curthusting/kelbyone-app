@@ -1,0 +1,636 @@
+body {
+    color: #37474f;
+}
+.card-header {
+    height: 0;
+    padding-top: 56.25%;
+    padding-top: 55%;
+    background-size: cover;
+    background-position: center;
+}
+.magazine .card-header {
+    padding-top: 134.33%;
+}
+.track .card-header {
+    padding-top: 100%;
+    width: 100%;
+    min-width: 100%;
+}
+
+.card-footer {
+    text-transform: uppercase;
+}
+
+.item-media {
+    width: 44px;
+    height: 44px;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    margin-top: 14px;
+    margin-bottom: 14px;
+}
+#course-offline .list-block.media-list .item-media
+{
+        padding: 0;
+    margin: 10px 0;
+    margin-left: -16px;
+    width: 60px;
+    height: 60px;
+}
+#course-offline .list-block.media-list .item-inner
+{
+    padding-top: 20px;
+}
+.panel .list-block.media-list .item-inner {
+    padding-top:0;
+}
+.list-block.accordion-list {
+    margin-top:0;
+}
+
+.tabbar a.tab-link, .tabbar a.link {
+    font-size: 10px;
+}
+
+.row .col-50.card {
+    width: calc(50% - 16px);
+}
+
+.toolbar a.link i + span {
+    margin-left: 0;
+}
+
+.card h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+        font-weight: normal;
+}
+h1, h2, h3, h4, h5, h6 {
+        font-weight: normal;
+    margin: 0;
+}
+.card p {
+    margin: 0;
+}
+
+.popover.popover-menu.popover-on-top {
+    top: initial !important;
+    bottom: 10px;
+    right: 10px;
+}
+
+.panel .list-block {
+    margin:0;
+    width: 100%;
+}
+
+.panel .list-block ul:before {
+    background-color: transparent;
+}
+
+.panel .navbar-fixed .navbar {
+    box-shadow: 0 0 0 transparent;
+/*     height: initial; */
+}
+
+.theme-cyan .panel .media-list {
+    background-color: #13b1b4;
+    color: #fff;
+}
+.theme-gray .panel .media-list {
+    background-color: #9e9e9e;
+}
+.panel .media-list,
+.panel .searchbar {
+    background-color: #ffa400;
+}
+.item-media img {
+    width: auto;
+    height: auto;
+    max-width: 40px;
+    border-radius: 50%;
+}
+
+.panel .list-block .item-media {
+    margin: 0;
+}
+.row {
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+.card {
+    width: calc(100% - 16px);
+/*     display: flex; */
+}
+
+@media screen and (min-width: 600px) {
+   .card {
+        width: calc(50% - 16px);
+        display: flex;
+    }
+}
+
+@media screen and (min-width: 900px) {
+   .card {
+        width: calc(33.33% - 16px);
+        display: flex;
+    }
+    .magazine.card.col-50,
+       .track.card.col-50 {
+        width: calc(25% - 16px);
+        display: flex;
+    }
+   .card.recent {
+        width: calc(50% - 16px);
+        display: flex;
+    }
+/*     .toolbar-bottom {
+        position: fixed;
+        top: 104px;
+        left: 0;
+        bottom: 0;
+        width: 270px;
+    } */
+}
+
+@media screen and (min-width: 1200px) {
+   .card {
+        width: calc(25% - 16px);
+        display: flex;
+    }
+   .card.recent {
+        width: calc(50% - 16px);
+        display: flex;
+    }
+}
+
+.card-content {
+    flex: 1 0 auto;
+}
+
+.row {
+        align-items: initial;
+        -webkit-align-items: initial;
+}
+.page-content {
+    padding-bottom: 80px;
+
+}
+.wrapper {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.content-block {
+        max-width: 700px;
+    margin: 0 auto;
+}
+
+/* .panel {
+    width: 100vw;
+    max-width: 400px;
+} */
+
+.panel .list-block ul:after {
+    background-color: transparent;
+}
+
+.searchbar .close-panel {
+    margin-right: 16px;
+}
+
+/* .tabs-swipeable-wrap {
+    max-width: 1200px;
+} */
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 32px 16px;
+    padding: 16px;
+    right: 0;
+    height: initial;
+    background: linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.4) 65%,rgba(0,0,0,0.8) 100%);
+    background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.4) 65%,rgba(0,0,0,0.8) 100%);
+}
+
+.popover {
+    width: 260px;
+}
+.material-icons {
+    line-height: inherit;
+}
+.panel .list-block.media-list {
+    position: absolute;
+    width: 100%;
+    left: 0px;
+    top: 56px;
+    z-index: 200;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 4px -1px, rgba(0, 0, 0, 0.137255) 0px 4px 5px 0px, rgba(0, 0, 0, 0.117647) 0px 1px 10px 0px;
+}
+
+.panel .list-block.accordion-list {
+    padding-top: 56px;
+}
+
+@media screen and (min-width: 1200px) {
+    .panel-left .navbar .close-panel,
+    .navbar .open-panel{
+        display: none !important;
+    }
+    .navbar .open-panel[data-panel="right"] {
+        display: block !important;
+    }
+}
+
+@media screen and (min-width: 1600px) {
+    .navbar .open-panel[data-panel="right"],
+    .panel-right .navbar .close-panel {
+        display: none !important;
+    }
+}
+
+.navbar .center .open-popover i {
+    vertical-align: bottom;
+}
+
+.toolbar-inner {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.toolbar-inner a {
+    max-width: 170px;
+        border-bottom: 3px solid rgba(255, 255, 255, 0);
+}
+
+.toolbar-inner a.active {
+        border-bottom: 3px solid rgba(255, 255, 255, 0.8);
+}
+
+.tabbar .tab-link-highlight {
+    display: none;
+}
+
+/* .active {
+    background: #eee;
+} */
+
+.swiper-wrapper.main {
+/*     height: 0; padding-top: 56.25%; */
+/*     min-height: 400px; */
+}
+
+.swiper-wrapper.main .swiper-slide {
+/*     margin-right: 40px; */
+    height: 0; padding-top: 66.6666667%;
+/*     height: 100%; */
+    background: url() no-repeat center center;
+    background-size: cover;
+/*     position: absolute; */
+/*     top: 0; */
+}
+@media screen and (min-width: 600px) {
+    .swiper-wrapper.main .swiper-slide {
+        padding-top: 56.25%
+    }
+}
+@media screen and (min-width: 800px) {
+    .swiper-wrapper.main .swiper-slide {
+        padding-top: 42.85%
+    }
+}
+/* .swiper-wrapper.main .swiper-slide .overlay {
+    margin-right: 40px;
+    background: url() no-repeat center center;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+} */
+.swiper-wrapper.main .swiper-slide .overlay {
+
+    padding: 16px 48px;
+}
+
+.swiper-wrapper.main .swiper-slide .overlay .button {
+    position: relative;
+    float: left;
+    border: 1px solid #fff;
+    margin-bottom: 32px;
+}
+
+.toolbar-bottom.theme-black {
+    background: #464646;
+}
+.play-overlay {
+    position: absolute;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.2);
+    font-size: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.play-overlay .material-icons {
+    font-size: 60px;
+}
+
+.list-block.media-list.chapters .item-media {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.list-block.media-list.chapters .item-media .material-icons {
+    font-size: 36px;
+}
+
+#course-lessons .card-content-inner>.list-block {
+    margin-top: 0;
+}
+
+.page-header {
+    padding-top: 104px;
+    padding-bottom: 80px;
+}
+.card-content-inner.header p {
+    margin-top: 0;
+}
+.timeline-item-content {
+    width: 100%;
+}
+.timeline-footer {
+        display: flex;
+    justify-content: space-between;
+    line-height: 46px;
+}
+.timeline-item-date {
+    width: 20px;
+}
+
+iframe {
+    border: 0;
+}
+
+.tab .list-block>ul:after {
+    display: none;
+}
+
+// [data-page="tracks"] .card-content-inner {
+//     min-height: 70px;
+// }
+
+// .card h3 {
+//     min-height: 50px;
+//     height: 50px;
+// }
+
+.card-content-inner.header {
+    font-size: 16px;
+}
+
+.card-content-inner.header p {
+    font-size: 14px;
+}
+
+.view-main h3, .view-main .card h3, .view-main .item-title, .item-title-row {
+    // font-size: 22px;
+    line-height: 1.2;
+    font-weight: light;
+}
+.view-main .chapters .item-title {
+    font-size: 16px;
+}
+#course-offline .panel .page-content .list-block .item-media {
+    margin: 0;
+    width: 36px;
+    min-width: 36px;
+}
+.panel .list-block .item-media i {
+    color: #464646;
+}
+// .list-block.media-list .item-inner {
+//     padding-top: 22px;
+// }
+#course-offline .list-block.media-list .item-media {
+    margin: 20px 0 10px;
+}
+#course-offline .list-block.media-list {
+    margin-top: 0;
+}
+#course-offline .list-block ul:before {
+height: 0;
+background: transparent;
+}
+// .card-content-inner {
+//     padding: 16px;
+//     position: relative;
+//     max-width: 500px;
+//     margin: 0 auto;
+// }
+.timeline-item-date {
+    width: 20px;
+    color: #bbb;
+    font-size: 1.75em;
+    font-weight: bold;
+    margin-top: -10px;
+    overflow: visible;
+    z-index: 999999;
+}
+// .navbar .back .material-icons {
+//     margin-top: 4px;
+// }
+p {
+    // rgba(55,71,78,.87)
+    font-weight: lighter;
+}
+.timeline {
+    max-width: 500px;
+    margin: 32px auto;
+}
+.row {
+    justify-content: flex-start;
+}
+
+.card.horizontal {
+    width: calc(100% - 16px);
+    height:120px;
+        margin-bottom: 0;
+}
+.card.horizontal .wrapper {
+    flex-direction: row;
+}
+.card.horizontal .card-header {
+    padding-top: 100%;
+}
+.card.horizontal .image {
+    width: 120px;
+    overflow: hidden;
+    // float: left;
+
+}
+.card.horizontal .card-content {
+    // width: 60%;
+    // float: left;
+
+}
+
+.chapters {
+    margin-top:0;
+}
+
+// .navbar .left a, .navbar .right a {
+//         width: 56px;
+// }
+.pagination {
+    width: 100%;
+}
+.pagination {
+    padding-left: 0;
+    list-style-type: none;
+    text-align: center;
+}
+.pagination li {
+    display: inline-block;
+    border-radius: 2px;
+    text-align: center;
+    vertical-align: top;
+    height: 28px;
+}
+.pagination li.active {
+    // background-color: #ffa400;
+    background-color: #13b1b4;
+}
+.pagination li a {
+    color: #37474f;
+    display: inline-block;
+    font-size: 1.2rem;
+    padding: 0 10px;
+    line-height: 30px;
+}
+.pagination li.disabled a {
+    cursor: default;
+    color: #37474f;
+}
+.pagination li.active a {
+    color: #fff;
+}
+
+.navbar .center {
+    font-size: 16px;
+    line-height: 38px;
+}
+
+.back {
+    margin-top: 4px;
+
+}
+
+.controls {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.controls .header,
+.play-overlay .top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    font-size: initial;
+    top: 0;
+    left: 10px;
+    right: 10px;
+    height: 40px;
+}
+.play-overlay .middle {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+.controls .footer,
+.play-overlay .bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    font-size: initial;
+    bottom: 0;
+    left: 10px;
+    right: 10px;
+    height: 40px;
+}
+
+#player {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+}
+
+ .card-content-inner.header + .card-content-inner {
+    padding-top: 0;
+ }
+[data-page="instructors"] .page-content,
+[data-page="tracks"] .page-content {
+    padding-top: 56px !important;
+}
+
+.actions .material-icons {
+    margin: 0 0 0 16px;
+}
+label.label-radio input[type=checkbox]:checked+.item-media i.icon-form-radio:after, label.label-radio input[type=checkbox]:checked~.item-after i.icon-form-radio:after, label.label-radio input[type=checkbox]:checked~.item-inner i.icon-form-radio:after, label.label-radio input[type=radio]:checked+.item-media i.icon-form-radio:after, label.label-radio input[type=radio]:checked~.item-after i.icon-form-radio:after, label.label-radio input[type=radio]:checked~.item-inner i.icon-form-radio:after {
+    background-color: #13b1b4;
+}
+label.label-radio input[type=checkbox]:checked+.item-media i.icon-form-radio, label.label-radio input[type=checkbox]:checked~.item-after i.icon-form-radio, label.label-radio input[type=checkbox]:checked~.item-inner i.icon-form-radio, label.label-radio input[type=radio]:checked+.item-media i.icon-form-radio, label.label-radio input[type=radio]:checked~.item-after i.icon-form-radio, label.label-radio input[type=radio]:checked~.item-inner i.icon-form-radio {
+    border-color: #13b1b4;
+}
+// [data-page="course"] .page-content {
+//     padding-top:0 !important;
+// }
+.card:not(.recent):not(.horizontal) {
+    padding-bottom: 48px;
+}
+.card-footer {
+    text-transform: uppercase;
+justify-self: flex-end;
+/* align-self: flex-end; */
+vertical-align: bottom;
+position: absolute;
+height: 48px;
+bottom: 0;
+
+width: 100%;
+}
+#course-lessons .wrapper,
+#course-about .wrapper,
+#course-offline .list-block {
+    max-width: 700px;
+    margin: 0 auto 32px;
+}
+[data-page="instructors"] #tracks-latest .row {
+    max-width: 700px;
+    margin: 0 auto;
+
+}

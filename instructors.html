@@ -1,0 +1,40 @@
+<div data-page="instructors" class="page">
+    <div class="navbar theme-orange">
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="#" class="link open-panel icon-only"><i class="icon icon-bars"></i></a>
+            </div>
+            <div class="center">Instructors</div>
+            <div class="right"><a href="#" data-panel="right" class="link open-panel material-icons">search</a></div>
+        </div>
+    </div>
+
+    <div class="tabs-swipeable-wrap swiper-container swiper-container-horizontal">
+        <div class="tabs swiper-wrapper">
+            <div id="tracks-latest" class="page-content tab swiper-slide active">
+                <div class="row no-gutter">
+                {{#each this.instructors}}
+                    <div class="card horizontal">
+                        <div class="wrapper">
+                            <div class="image">
+                                <a href="instructor.html?instructorId={{this.id}}" class="color-black" data-context='{{stringify this}}'>
+                                    <div style="background-image:url({{this.image}})" class="card-header color-white no-border"></div>
+                                </a>
+                            </div>
+                            <div class="card-content">
+                                <div class="card-content-inner">
+                                    <a href="instructor.html?instructorId={{this.id}}" class="color-black" data-context='{{stringify this}}'><h3>{{this.name}}</h3></a>
+                                    <p class="color-gray">{{this.coursesCount}} Courses</p>
+                                </div>
+                                <div class="card-footer">
+                                    <a href="instructor.html?instructorId={{this.id}}" data-context='{{stringify this}}'>Read Bio</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {{/each}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

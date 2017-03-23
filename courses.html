@@ -1,0 +1,226 @@
+<div data-page="courses" class="page">
+    <div class="navbar theme-orange">
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="#" class="link open-panel icon-only"><i class="icon icon-bars"></i></a>
+            </div>
+            <div class="center">
+                <a href="#" data-popover=".course-categories" class="open-popover color-white">All Courses <i class="material-icons color-white">arrow_drop_down</i></a>
+            </div>
+            <div class="right">
+                <a href="#" data-panel="right" class="link open-panel material-icons">search</a>
+            </div>
+        </div>
+    </div>
+    <div class="toolbar tabbar theme-orange">
+        <div class="toolbar-inner">
+            <a href="#course-latest" class="tab-link active">Latest</a>
+            <a href="#course-current" class="tab-link">Current</a>
+            <a href="#course-bookmarks" class="tab-link">Bookmarks</a>
+            <a href="#course-offline" class="tab-link">Offline</a>
+        </div>
+    </div>
+    <div class="tabs-swipeable-wrap swiper-container swiper-container-horizontal">
+        <div class="tabs swiper-wrapper">
+            <div id="course-latest" class="tab page-content swiper-slide active">
+                <div class="row no-gutter">
+                {{#each this.current}}
+                    <div class="card">
+                        <div class="wrapper">
+                            <a href="course.html" data-context='{{stringify this}}'>
+                                <div style="background-image:url({{this.image}})" class="card-header color-white no-border">
+                                </div>
+                            </a>
+                            <span data-progress="{{this.progress}}" class="progressbar"><span style="transform: translate3d(-{{this.percent}}%, 0px, 0px);"></span></span>
+                            <div class="card-content">
+                                <div class="card-content-inner header">
+                                    <div class="list-block media-list">
+                                        <ul>
+                                            <li class="item-content">
+                                                <div class="item-media"><a class="color-gray link" href="instructor.html" data-context='{{stringify instructor}}'><img src="{{instructor.image}}" width="44" class=""></a></div>
+                                                <div class="item-inner">
+                                                    <div class="item-title-row">
+                                                        <a class="color-black link" href="course.html" data-context='{{stringify this}}'><h3>{{this.name}}</h3></a>
+                                                    </div>
+                                                    <div class="item-subtitle color-gray">with <a class="color-gray link" href="instructor.html" data-context='{{stringify instructor}}'>{{instructor.name}}</a></div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="card-content-inner">
+                                    <p>{{teaser this 155}}</p>
+                                    <div class="item-subtitle color-gray">12 Lessons - 4 hrs 12 mins</div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <a href="course.html" data-context='{{stringify this}}'>View Course</a>
+                                <div class="actions">
+                                    {{#if this.isBookmarked}}
+                                    <a href="#" class="material-icons">bookmark</a>
+                                    {{else}}
+                                    <a href="#" class="material-icons">bookmark_border</a>
+                                    {{/if}}
+                                    <a href="#" class="material-icons">file_download</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                {{else}}
+                    <div class="wrapper">
+                        <div class="card-content">
+                            <div class="card-content-inner">
+                                <h3>No Content Found</h3>
+                            </div>
+                        </div>
+                    </div>
+                {{/each}}
+                    <ul class="pagination">
+                        <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+                        <li class="active"><a href="#!">1</a></li>
+                        <li class=""><a href="#!">2</a></li>
+                        <li class=""><a href="#!">3</a></li>
+                        <li class="disabled"><a href="#!">...</a></li>
+                        <li class=""><a href="#!">42</a></li>
+                        <li class=""><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div id="course-current" class="tab page-content swiper-slide">
+                <div class="row no-gutter">
+                {{#each this.current}}
+                    {{#if this.progress}}
+                    <div class="card recent">
+                        <div class="wrapper">
+                            <a href="course.html" data-context='{{stringify this}}'>
+                                <div style="background-image:url({{this.image}})" class="card-header color-white no-border">
+                                    <div class="play-overlay"><i class="material-icons icon">play_circle_outline</i></div>
+                                    <div class="overlay color-white">
+                                        <h3>{{this.name}}</h3>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    {{/if}}
+                {{else}}
+                    <div class="wrapper">
+                        <div class="card-content">
+                            <div class="card-content-inner">
+                                <h3>No Content Found</h3>
+                            </div>
+                        </div>
+                    </div>
+                {{/each}}
+                </div>
+            </div>
+            <div id="course-bookmarks" class="tab page-content swiper-slide">
+                <div class="row no-gutter">
+                {{#each this.current}}
+                    {{#if this.isBookmarked}}
+                    <div class="card">
+                        <div class="wrapper">
+                            <a href="course.html" data-context='{{stringify this}}'>
+                                <div style="background-image:url({{this.image}})" class="card-header color-white no-border">
+                                </div>
+                            </a>
+                            <span data-progress="{{this.progress}}" class="progressbar"><span style="transform: translate3d(-{{this.percent}}%, 0px, 0px);"></span></span>
+                            <div class="card-content">
+                            <div class="card-content-inner header">
+                                <div class="list-block media-list">
+                                    <ul>
+                                        <li class="item-content">
+                                            <div class="item-media"><a class="color-gray link" href="instructor.html" data-context='{{stringify instructor}}'><img src="{{instructor.image}}" width="44" class=""></a></div>
+                                            <div class="item-inner">
+                                                <div class="item-title-row">
+                                                    <a class="color-black link" href="course.html" data-context='{{stringify this}}'><h3>{{this.name}}</h3></a>
+                                                </div>
+                                                <div class="item-subtitle color-gray">with <a class="color-gray link" href="instructor.html" data-context='{{stringify instructor}}'>{{instructor.name}}</a></div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                                <div class="card-content-inner">
+                                    <p>{{teaser this 155}}</p>
+                                    <div class="item-subtitle color-gray">12 Lessons - 4 hrs 12 mins</div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <a href="course.html" data-context='{{stringify this}}'>View Course</a>
+                                <div class="actions">
+                                    <a href="#" class="material-icons">bookmark</a>
+                                    <a href="#" class="material-icons">file_download</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{/if}}
+                {{else}}
+                    <div class="wrapper">
+                        <div class="card-content">
+                            <div class="card-content-inner">
+                                <h3>No Content Found</h3>
+                            </div>
+                        </div>
+                    </div>
+                {{/each}}
+                </div>
+            </div>
+            <div id="course-offline" class="tab page-content swiper-slide">
+                <div class="">
+                    <div class="list-block media-list theme-cyan">
+                        <ul>
+                            <li class="item-content">
+                                <div class="item-media" style="background-image:url(//img.kelbymediagroup.com/kelbyone_enterprise/2017/01/NOTC_MainImages_01.18.17_LearnToLetGo-768x432.jpg)"></div>
+                                <div class="item-inner">
+                                    <div class="item-title-row">
+                                        <div class="item-title"><a href="course.html" class="color-black">Building a Winning Portfolio: Editing and Sequencing Your Images</a></div>
+                                    </div>
+                                    <div class="item-subtitle color-gray">with Stella Kramer</div>
+                                    <div class="item-subtitle color-gray"><span class="color-orange">Downloading</span> (6.4mb of 64.4mb)</div>
+                                    <!-- <span data-progress="0" class="progressbar"><span style="transform: translate3d(-100%, 0px, 0px);"></span></span> -->
+                                </div>
+                            </li>
+                            <li class="item-content">
+                                <div class="item-media" style="background-image:url(http://img.kelbymediagroup.com/kelbyone_enterprise/2017/01/AARON_NOTC_MainImages_01.04.17_PetsinChallengingSituations-768x432.jpg)"></div>
+                                <div class="item-inner">
+                                    <div class="item-title-row">
+                                        <div class="item-title"><a href="course.html" class="color-black">Dog Photography: Overcoming Challenging Situations</a></div>
+                                    </div>
+                                    <div class="item-subtitle color-gray">with Kaylee Greer</div>
+                                    <div class="item-subtitle color-gray"><span class="color-teal">Downloaded</span></div>
+                                    <!-- <span data-progress="0" class="progressbar"><span style="transform: translate3d(-100%, 0px, 0px);"></span></span> -->
+                                </div>
+                            </li>
+                            <li class="item-content">
+                                <div class="item-media" style="background-image:url(http://img.kelbymediagroup.com/kelbyone_enterprise/2017/01/NOTC_MainImages_01.25.17_Headshot-768x432.jpg)"></div>
+                                <div class="item-inner">
+                                    <div class="item-title-row">
+                                        <div class="item-title"><a href="course.html" class="color-black">The Top Ten Headshot Photography Questions Answered</a></div>
+                                    </div>
+                                    <div class="item-subtitle color-gray">with Peter Hurley</div>
+                                    <div class="item-subtitle color-gray"><span class="color-teal">Downloaded</span></div>
+                                    <!-- <span data-progress="0" class="progressbar"><span style="transform: translate3d(-100%, 0px, 0px);"></span></span> -->
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="popover course-categories">
+        <div class="popover-inner">
+            <div class="list-block">
+                <ul>
+                    <li><a href="courses.html" class="list-button item-link active close-popover">All Courses</a></li>
+                    {{#each @global.categories}}
+                        <li><a href="category.html?categoryId={{this.id}}" class="list-button item-link close-popover" data-context='{{stringify this}}'>{{this.name}}</a></li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

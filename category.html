@@ -1,0 +1,88 @@
+<div data-page="category" class="page">
+    <div class="navbar theme-orange">
+        <div class="navbar-inner">
+            <div class="left">
+                <a href="index.html" class="back color-white"><i class="material-icons">keyboard_arrow_left</i></a>
+            </div>
+            <div class="center">
+                <a href="#" class="open-popover color-white">{{name}} <i class="material-icons color-white">arrow_drop_down</i></a>
+            </div>
+        </div>
+    </div>
+    <div class="toolbar tabbar theme-orange">
+        <div class="toolbar-inner">
+            <a href="#category-latest" class="tab-link active">Latest</a>
+            <a href="#category-featured" class="tab-link">Featured</a>
+        </div>
+    </div>
+    <div class="tabs-swipeable-wrap swiper-container swiper-container-horizontal">
+        <div class="tabs swiper-wrapper">
+            <div id="category-latest" class="tab page-content swiper-slide active">
+                <div class="row no-gutter">
+                {{#each @global.categories}}
+                    <h1>{{name}}</h1>
+                {{/each}}
+                <h1>Foo</h1>
+                {{#each this.latest}}
+                    <div class="card">
+                        <div class="wrapper">
+                            <div style="background-image:url({{this.image}})" class="card-header color-white no-border">
+                            </div>
+                            <span data-progress="{{this.progress}}" class="progressbar"><span style="transform: translate3d(-{{this.percent}}%, 0px, 0px);"></span></span>
+                            <div class="card-content">
+                                <div class="card-content-inner">
+                                    <a class="color-black link" href="course.html"><h3>{{this.name}}</h3></a>
+                                    <p class="color-gray">with {{this.instructor.name}}</p>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <a href="course.html">View Course</a>
+                                <a href="#" class="material-icons">bookmark_border</a>
+                            </div>
+                        </div>
+                    </div>
+                {{else}}
+                    <div class="wrapper">
+                        <div class="card-content">
+                            <div class="card-content-inner">
+                                <h3>No Content Found</h3>
+                            </div>
+                        </div>
+                    </div>
+                {{/each}}
+                </div>
+            </div>
+            <div id="category-featured" class="tab page-content swiper-slide">
+                <div class="row no-gutter">
+                {{#each this.featured}}
+                    <div class="card">
+                        <div class="wrapper">
+                            <div style="background-image:url({{this.image}})" class="card-header color-white no-border">
+                            </div>
+                            <span data-progress="{{this.progress}}" class="progressbar"><span style="transform: translate3d(-{{this.percent}}%, 0px, 0px);"></span></span>
+                            <div class="card-content">
+                                <div class="card-content-inner">
+                                    <a class="color-black link" href="course.html"><h3>{{this.name}}</h3></a>
+                                    <p class="color-gray">with {{this.instructor.name}}</p>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <a href="course.html">View Course</a>
+                                <a href="#" class="material-icons">bookmark_border</a>
+                            </div>
+                        </div>
+                    </div>
+                {{else}}
+                    <div class="wrapper">
+                        <div class="card-content">
+                            <div class="card-content-inner">
+                                <h3>No Content Found</h3>
+                            </div>
+                        </div>
+                    </div>
+                {{/each}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
