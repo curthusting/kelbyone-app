@@ -64,7 +64,7 @@
 
 // const instructors = $.getJSON('http://dev.kelbyone.com/api/v1/instructors');
 
-const instructors = [{
+var instructors = [{
     name: "Aaron Grimes",
     image: "\/\/progressive.kelbymediagroup.com\/kelbyone\/uploads\/images\/instructor_headshots\/k1_instructors_agrimes_640x640.jpg",
     sort: 0,
@@ -1141,8 +1141,8 @@ const courses = [{
 }, {
     id: 1640878,
     isBookmarked: true,
-    progress: 100,
-    percent: 0,
+    progress: 76,
+    percent: 24,
     lessons: [],
     instructor: {
         image: 'http://progressive.kelbymediagroup.com/kelbyone/uploads/images/instructor_headshots/k1_instructors_skramer_640x640.jpg',
@@ -1251,12 +1251,63 @@ const courses = [{
     name: "Travel Photography: A Photographers Guide to London",
     image: 'http://img.kelbymediagroup.com/kelbyone_enterprise/2016/12/NOTC_MainImages_12.21.16_TravelLondon-768x432.jpg'
 }];
+const instructorCourses = [{
+    id: 1659386,
+    isBookmarked: false,
+    progress: 0,
+    percent: 100,
+    lessons: [],
+    instructor: {
+        image: 'http://img.kelbymediagroup.com/kelbyone_enterprise/2016/03/k1_instructors_skelby_640x640.jpg',
+        name: 'Scott Kelby',
+        body: 'Scott is the President and CEO of KelbyOne, is also the original "Photoshop Guy", is the editor and publisher of Photoshop User Magazine, Conference Technical Chair for the Photoshop World Conference & Expo, Training Director and instructor for KelbyOne Live Seminars, and author of a string of bestselling technology and photography books.'
+    },
+    body: "Imagine going out shooting with Scott Kelby at your side giving you tips, advice, and strategies for using your camera the same way he does, and that\'s what this class is all about. Scott\'s goal is to help beginners go beyond auto mode, be in control, and make great photographs. It\'s as simple as that, and it doesn\'t even matter what brand of camera you are using, as these lessons apply to all cameras. Scott shares his favorite camera settings, tips for getting tack-sharp photos, favorite lenses for different situations, and so much more. Once you start putting these concepts into practice you\'re going to see an immediate improvement in your work.",
+    name: "Beginners Start Here",
+    image: 'http://img.kelbymediagroup.com/kelbyone_enterprise/2017/02/AARON_NOTC_MainImages_02.22.17_BeginnersStartHere-768x432.jpg'
+}, {
+    id: 1568808,
+    isBookmarked: true,
+    progress: 0,
+    percent: 100,
+    lessons: [],
+    instructor: {
+        image: 'http://img.kelbymediagroup.com/kelbyone_enterprise/2016/03/k1_instructors_skelby_640x640.jpg',
+        name: 'Scott Kelby',
+        body: 'Scott is the President and CEO of KelbyOne, is also the original "Photoshop Guy", is the editor and publisher of Photoshop User Magazine, Conference Technical Chair for the Photoshop World Conference & Expo, Training Director and instructor for KelbyOne Live Seminars, and author of a string of bestselling technology and photography books.'
+    },
+    body: "Consider this your very own photographer-friendly guide on where to go for the best photographs of Venice, Italy. Join Scott Kelby and Larry Becker as Scott shares his favorite locations to shoot, along with the kind of veteran traveler tips that will help you capture images that you\'ll be delighted to bring back home. Timing is everything, so you\'ll not only learn where to go, but what times will yield the best chances for great photographs. This is strictly a travel guide for photographers (including a downloadable PDF), so there\'s no Photoshop or Lightroom involved, just the kind of information that will aid you on your photographic journey and inspire you to get out there and shoot.",
+    name: "Travel Photography: A Photographers Guide to Venice",
+    image: 'http://img.kelbymediagroup.com/kelbyone_enterprise/2016/12/NOTC_MainImages_12.21.16_TraveVenice-768x432.jpg'
+}, {
+    id: 1568723,
+    isBookmarked: true,
+    progress: 80,
+    percent: 20,
+    lessons: [],
+    instructor: {
+        image: 'http://img.kelbymediagroup.com/kelbyone_enterprise/2016/03/k1_instructors_skelby_640x640.jpg',
+        name: 'Scott Kelby',
+        body: 'Scott is the President and CEO of KelbyOne, is also the original "Photoshop Guy", is the editor and publisher of Photoshop User Magazine, Conference Technical Chair for the Photoshop World Conference & Expo, Training Director and instructor for KelbyOne Live Seminars, and author of a string of bestselling technology and photography books.'
+    },
+    body: "Consider this your very own photographer-friendly guide on where to go for the best photographs of London, England. Join Scott Kelby and Larry Becker as Scott shares his favorite locations to shoot, along with the kind of veteran traveler tips that will help you capture images that you\'ll be delighted to bring back home. Timing is everything, so you\'ll not only learn where to go, but what times will yield the best chances for great photographs. This is strictly a travel guide for photographers (including a downloadable PDF), so there\'s no Photoshop or Lightroom involved, just the kind of information that will aid you on your photographic journey and inspire you to get out there and shoot.",
+    name: "Travel Photography: A Photographers Guide to London",
+    image: 'http://img.kelbymediagroup.com/kelbyone_enterprise/2016/12/NOTC_MainImages_12.21.16_TravelLondon-768x432.jpg'
+}];
+
 
 Template7.global = {
     category: category,
     categories: categories,
-    instructors: instructors,
-    courses: courses
+    instructors: function() {
+        $.getJSON('http://kelbyone/wp-json/ko/v2/instructors/', function(data) {
+            console.info(data, 'data');
+            return data.response.instructors;
+        });
+
+    },
+    courses: courses,
+    instructorCourses: instructorCourses
 };
 // Initialize app
 var kelbyoneApp = new Framework7({
@@ -1296,6 +1347,11 @@ var kelbyoneApp = new Framework7({
         'url:instructors.html': {
             instructors: function() {
                 return getInstructors();
+            }
+        },
+        'url:instructor.html': {
+            courses: function() {
+                return getInstructorCourses('main');
             }
         },
         'url:index.html': {
@@ -1347,12 +1403,20 @@ function sortByKey(array, key, sort) {
 
 // console.info(getObjects(courses, 'instructor.id', 10))
 function getInstructors() {
-    // return Template7.global.instructors;
+        $.getJSON('http://kelbyone/wp-json/ko/v2/instructors/', function(data) {
+            console.info(data.response.instructors, 'instructors');
+            return sortByKey(data.response.instructors, 'number_of_courses', 'desc');
+        });
+    return Template7.global.instructors;
     return sortByKey(Template7.global.instructors, 'coursesCount', 'desc');
 }
 
 function getCurrentCourses() {
     return Template7.global.courses;
+}
+
+function getInstructorCourses() {
+    return Template7.global.instructorCourses;
 }
 
 console.info(Template7.data, 'data?');
@@ -1390,6 +1454,11 @@ $(document).on('click', '.show-course-lessons', function() {
     player.on('ready', function() {
         player.play();
     });
+});
+
+$$('.video-settings').on('click', function () {
+    $('.search').hide();
+    $('.settings').show();
 });
 
 $$('#course-lessons').on('tab:show', function() {
