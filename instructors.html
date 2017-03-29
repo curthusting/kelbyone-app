@@ -13,8 +13,25 @@
         <div class="tabs swiper-wrapper">
             <div id="tracks-latest" class="page-content tab swiper-slide active">
                 <div class="row no-gutter">
-                {{#each this.instructors}}
-                    <div class="card horizontal">
+                    <div class="wrapper">
+                        <div class="card-content-inner header">
+                            <div class="list-block media-list">
+                                <ul>
+                    {{#each this.instructors}}
+                                    <li class="item-content">
+                                        <div class="item-media">
+                                            <a href="instructor.html?instructorId={{this.id}}" class="color-black" data-context='{{stringify this}}'>
+                                                <img src="{{this.image}}" width="44" class="">
+                                            </a>
+                                        </div>
+                                        <div class="item-inner">
+                                            <div class="item-title-row">
+                                                <a href="instructor.html?instructorId={{this.id}}" class="color-black" data-context='{{stringify this}}'><h3>{{this.name}}</h3></a>
+                                            </div>
+                                            <div class="item-subtitle color-gray">{{this.coursesCount}} Courses</div>
+                                        </div>
+                                    </li>
+                    <!-- <div class="card horizontal">
                         <div class="wrapper">
                             <div class="image">
                                 <a href="instructor.html?instructorId={{this.id}}" class="color-black" data-context='{{stringify this}}'>
@@ -31,8 +48,12 @@
                                 </div>
                             </div>
                         </div>
+                    </div> -->
+                    {{/each}}
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                {{/each}}
                 </div>
             </div>
         </div>

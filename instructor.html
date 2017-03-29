@@ -19,88 +19,86 @@
         <div class="tabs swiper-wrapper">
             <div id="instructor-about" class="tab page-content swiper-slide active">
                 <div class="row no-gutter">
-                    <div class="wrapper">
-                        <div style="background-image:url({{image}})" class="card-header color-white no-border">
-                        </div>
-                        <div class="card-content">
+                        <div class="wrapper">
                             <div class="card-content-inner header">
-                                <h3>{{name}}</h3>
-                                <p class="color-gray">{{coursesCount}} Courses</p>
+                                <div class="list-block media-list">
+                                    <ul>
+                                        <li class="item-content">
+                                            <div class="item-media">
+                                                <img src="{{image}}" width="120" class=""></a>
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="item-title-row">
+                                                    <div class="">
+                                                        <h3>{{name}}</h3></div>
+                                                </div>
+                                                <div class="item-subtitle color-gray">{{coursesCount}} Courses</div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                             <div class="card-content-inner">
                                 <p>{{body}}</p>
                             </div>
                         </div>
-                    </div>
+
                 </div>
             </div>
             <div id="instructor-courses" class="tab page-content swiper-slide">
                 <div class="row no-gutter">
+                {{#each @global.instructorCourses}}
                     <div class="card">
                         <div class="wrapper">
-                            <div style="background-image:url(http://img.kelbymediagroup.com/kelbyone_enterprise/2017/02/AARON_NOTC_MainImages_02.22.17_BeginnersStartHere-768x432.jpg)" class="card-header color-white no-border">
-                            </div>
-                            <span data-progress="0" class="progressbar"><span style="transform: translate3d(-100%, 0px, 0px);"></span></span>
+                            <a href="course.html" data-context='{{stringify this}}'>
+                                <div style="background-image:url({{this.image}})" class="card-header color-white no-border">
+                                </div>
+                            </a>
+                            <span data-progress="{{this.progress}}" class="progressbar"><span style="transform: translate3d(-{{this.percent}}%, 0px, 0px);"></span></span>
                             <div class="card-content">
+                                <div class="card-content-inner header">
+                                    <div class="list-block">
+                                        <ul>
+                                            <li class="item-content">
+                                                <!-- <div class="item-media"><a class="color-gray link" href="instructor.html" data-context='{{stringify instructor}}'><img src="{{instructor.image}}" width="44" class=""></a></div> -->
+                                                <div class="item-inner">
+                                                    <div class="item-title-row">
+                                                        <a class="color-black link" href="course.html" data-context='{{stringify this}}'><h3>{{this.name}}</h3></a>
+
+                                                    <div class="item-subtitle color-gray" style="clear: btoh;">with <a class="color-gray link" href="instructor.html" data-context='{{stringify instructor}}'>{{instructor.name}}</a></div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
                                 <div class="card-content-inner">
-                                    <a class="color-black link" href="course.html"><h3>Beginners Start Here</h3></a>
-                                    <p class="color-gray">with Scott Kelby</p>
+                                    <p>{{teaser this 130}}</p>
+                                    <div class="item-subtitle color-gray">4 hrs 12 mins</div>
                                 </div>
                             </div>
                             <div class="card-footer">
-                                <a href="course.html">View Course</a>
-                                <a href="#" class="material-icons">bookmark_border</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="wrapper">
-                            <div style="background-image:url(//img.kelbymediagroup.com/kelbyone_enterprise/2017/01/NOTC_MainImages_01.18.17_LearnToLetGo-768x432.jpg)" class="card-header color-white no-border"></div>
-                            <span data-progress="0" class="progressbar"><span style="transform: translate3d(-100%, 0px, 0px);"></span></span>
-                            <div class="card-content">
-                                <div class="card-content-inner">
-                                    <a class="color-black link" href="course.html"><h3>Building a Winning Portfolio: Editing and Sequencing Your Images</h3></a>
-                                    <p class="color-gray">with Stella Kramer</p>
+                                <a href="course.html" data-context='{{stringify this}}'>View Course</a>
+                                <div class="actions">
+                                    {{#if this.isBookmarked}}
+                                    <a href="#" class="material-icons">bookmark</a>
+                                    {{else}}
+                                    <a href="#" class="material-icons">bookmark_border</a>
+                                    {{/if}}
+                                    <a href="#" class="material-icons">file_download</a>
                                 </div>
                             </div>
-                            <div class="card-footer">
-                                <a href="course.html">View Course</a>
-                                <a href="#" class="material-icons">bookmark_border</a>
+                        </div>
+                    </div>
+                {{else}}
+                    <div class="wrapper">
+                        <div class="card-content">
+                            <div class="card-content-inner">
+                                <h3>No Content Found</h3>
                             </div>
                         </div>
                     </div>
-                    <div class="card">
-                        <div class="wrapper">
-                            <div style="background-image:url(http://img.kelbymediagroup.com/kelbyone_enterprise/2017/01/AARON_NOTC_MainImages_01.04.17_PetsinChallengingSituations-768x432.jpg)" class="card-header color-white no-border"></div>
-                            <span data-progress="0" class="progressbar"><span style="transform: translate3d(-100%, 0px, 0px);"></span></span>
-                            <div class="card-content">
-                                <div class="card-content-inner">
-                                    <a class="color-black link" href="course.html"><h3>Dog Photography: Overcoming Challenging Situations</h3></a>
-                                    <p class="color-gray">with Kaylee Greer</p>
-                                </div>
-                            </div>
-                            <div class="card-footer">
-                                <a href="course.html">View Course</a>
-                                <a href="#" class="material-icons">bookmark</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="wrapper">
-                            <div style="background-image:url(http://img.kelbymediagroup.com/kelbyone_enterprise/2017/01/NOTC_MainImages_01.25.17_Headshot-768x432.jpg)" class="card-header color-white no-border"></div>
-                            <span data-progress="0" class="progressbar"><span style="transform: translate3d(-100%, 0px, 0px);"></span></span>
-                            <div class="card-content">
-                                <div class="card-content-inner">
-                                    <a class="color-black link" href="course.html"><h3>The Top Ten Headshot Photography Questions Answered</h3></a>
-                                    <p class="color-gray">with Peter Hurley</p>
-                                </div>
-                            </div>
-                            <div class="card-footer">
-                                <a href="course.html">View Course</a>
-                                <a href="#" class=" material-icons">bookmark</a>
-                            </div>
-                        </div>
-                    </div>
+                {{/each}}
                 </div>
             </div>
         </div>

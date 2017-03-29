@@ -34,23 +34,24 @@
                             <span data-progress="{{this.progress}}" class="progressbar"><span style="transform: translate3d(-{{this.percent}}%, 0px, 0px);"></span></span>
                             <div class="card-content">
                                 <div class="card-content-inner header">
-                                    <div class="list-block media-list">
+                                    <div class="list-block">
                                         <ul>
                                             <li class="item-content">
-                                                <div class="item-media"><a class="color-gray link" href="instructor.html" data-context='{{stringify instructor}}'><img src="{{instructor.image}}" width="44" class=""></a></div>
+                                                <!-- <div class="item-media"><a class="color-gray link" href="instructor.html" data-context='{{stringify instructor}}'><img src="{{instructor.image}}" width="44" class=""></a></div> -->
                                                 <div class="item-inner">
                                                     <div class="item-title-row">
                                                         <a class="color-black link" href="course.html" data-context='{{stringify this}}'><h3>{{this.name}}</h3></a>
+
+                                                    <div class="item-subtitle color-gray" style="clear: btoh;">with <a class="color-gray link" href="instructor.html" data-context='{{stringify instructor}}'>{{instructor.name}}</a></div>
                                                     </div>
-                                                    <div class="item-subtitle color-gray">with <a class="color-gray link" href="instructor.html" data-context='{{stringify instructor}}'>{{instructor.name}}</a></div>
                                                 </div>
                                             </li>
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="card-content-inner">
-                                    <p>{{teaser this 155}}</p>
-                                    <div class="item-subtitle color-gray">12 Lessons - 4 hrs 12 mins</div>
+                                    <p>{{teaser this 130}}</p>
+                                    <div class="item-subtitle color-gray">4 hrs 12 mins</div>
                                 </div>
                             </div>
                             <div class="card-footer">
@@ -66,7 +67,6 @@
                             </div>
                         </div>
                     </div>
-
                 {{else}}
                     <div class="wrapper">
                         <div class="card-content">
@@ -100,6 +100,7 @@
                                         <h3>{{this.name}}</h3>
                                     </div>
                                 </div>
+                                <span data-progress="{{this.progress}}" class="progressbar"><span style="transform: translate3d(-{{this.percent}}%, 0px, 0px);"></span></span>
                             </a>
                         </div>
                     </div>
@@ -127,30 +128,34 @@
                             </a>
                             <span data-progress="{{this.progress}}" class="progressbar"><span style="transform: translate3d(-{{this.percent}}%, 0px, 0px);"></span></span>
                             <div class="card-content">
-                            <div class="card-content-inner header">
-                                <div class="list-block media-list">
-                                    <ul>
-                                        <li class="item-content">
-                                            <div class="item-media"><a class="color-gray link" href="instructor.html" data-context='{{stringify instructor}}'><img src="{{instructor.image}}" width="44" class=""></a></div>
-                                            <div class="item-inner">
-                                                <div class="item-title-row">
-                                                    <a class="color-black link" href="course.html" data-context='{{stringify this}}'><h3>{{this.name}}</h3></a>
+                                <div class="card-content-inner header">
+                                    <div class="list-block">
+                                        <ul>
+                                            <li class="item-content">
+                                                <div class="item-inner">
+                                                    <div class="item-title-row">
+                                                        <a class="color-black link" href="course.html" data-context='{{stringify this}}'><h3>{{this.name}}</h3></a>
+
+                                                    <div class="item-subtitle color-gray" style="clear: btoh;">with <a class="color-gray link" href="instructor.html" data-context='{{stringify instructor}}'>{{instructor.name}}</a></div>
+                                                    </div>
                                                 </div>
-                                                <div class="item-subtitle color-gray">with <a class="color-gray link" href="instructor.html" data-context='{{stringify instructor}}'>{{instructor.name}}</a></div>
-                                            </div>
-                                        </li>
-                                    </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
-                            </div>
                                 <div class="card-content-inner">
-                                    <p>{{teaser this 155}}</p>
-                                    <div class="item-subtitle color-gray">12 Lessons - 4 hrs 12 mins</div>
+                                    <p>{{teaser this 130}}</p>
+                                    <div class="item-subtitle color-gray">4 hrs 12 mins</div>
                                 </div>
                             </div>
                             <div class="card-footer">
                                 <a href="course.html" data-context='{{stringify this}}'>View Course</a>
                                 <div class="actions">
+                                    {{#if this.isBookmarked}}
                                     <a href="#" class="material-icons">bookmark</a>
+                                    {{else}}
+                                    <a href="#" class="material-icons">bookmark_border</a>
+                                    {{/if}}
                                     <a href="#" class="material-icons">file_download</a>
                                 </div>
                             </div>

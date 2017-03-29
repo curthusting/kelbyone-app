@@ -530,13 +530,31 @@ p {
 .navbar .center {
     font-size: 16px;
     line-height: 38px;
+        // padding-top: 2px;
 }
 
 .back {
-    margin-top: 4px;
+    // margin-top: 4px;
 
 }
-
+.list-block-search .chip-media { margin-left: 5px; }
+.list-block-search .item-title {
+    min-width: 0;
+    -webkit-box-flex: 1;
+    -webkit-flex-shrink: 1;
+    -ms-flex: 0 1 auto;
+    flex-shrink: 1;
+    white-space: initial;
+    position: relative;
+    overflow: visible;
+    text-overflow: initial;
+    max-width: 100%;
+        line-height: 1.2;
+}
+.panel .list-block.list-block-search .item-media i {
+    color: inherit;
+    // font-size: 36px;
+}
 .controls {
     display: none;
     position: absolute;
@@ -634,3 +652,15 @@ width: 100%;
     margin: 0 auto;
 
 }
+#instructor-about .item-media {
+    width: 120px; height: 120px;
+}
+#instructor-about .item-media img {
+    width: 120px;
+    border-radius: 0;
+        max-width: 100%;
+}
+.chapters .active {
+        background: #efefef;
+}
+

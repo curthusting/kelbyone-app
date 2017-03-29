@@ -2,13 +2,13 @@
     <div class="navbar theme-orange">
         <div class="navbar-inner">
             <div class="left">
-                <a href="index.html" class="back color-white"><i class="material-icons">keyboard_arrow_left</i></a>
+                <a href="index.html" class="link back color-white"><i class="material-icons">keyboard_arrow_left</i></a>
             </div>
             <div class="center">
                 <a href="#" data-popover=".course-categories" class="open-popover color-white">{{name}}</a>
             </div>
             <div class="right">
-                <a href="#" data-popover=".playback-options" class="open-popover color-white material-icons">more_vert</a>
+                <a href="#" data-panel="right" class="link open-panel color-white material-icons video-settings">more_vert</a>
             </div>
         </div>
     </div>
@@ -98,7 +98,7 @@
                                     <li>
                                         <div class="item-content">
                                             <div class="item-media">
-                                                <i class="material-icons icon color-teal">check</i>
+                                                <i class="material-icons icon color-cyan">check</i>
                                             </div>
                                             <div class="item-inner">
                                                 <div class="item-title-row">
@@ -110,7 +110,7 @@
                                     </li>
                                     {{#each lessons}}
                                     <li>
-                                        <div class="item-content">
+                                        <div class="item-content {{#if @first}}active{{/if}}">
                                             <div class="item-media">
                                                 <i class="material-icons icon color-cyan">play_circle_outline</i>
                                             </div>
